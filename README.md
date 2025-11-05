@@ -96,7 +96,6 @@ Test API using Postman
 
 🧑‍💻 Author
 Aayush Shrivastava
-📍 Gurugram, India
-🔗 LinkedIn
+📍 Delhi, India
+aayushshrivastava508@gmail.com
 
-💻 GitHub
