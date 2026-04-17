@@ -1,101 +1,146 @@
-Secure Contact Manager (Backend)
+# 🔐 Secure Contact Manager (Backend)
 
-A secure and scalable backend system for managing user contacts with features like authentication, authorization, and full CRUD operations.
-Built using Node.js, Express.js, and MongoDB, this API follows RESTful design principles and ensures efficient data handling with JSON Web Token (JWT)-based authentication.
+A secure and scalable backend API for managing user contacts with authentication, authorization, and full CRUD functionality. Built using Node.js, Express.js, and MongoDB, following RESTful API design principles.
 
-🚀 Features
+---
 
-🔐 User Authentication using JWT (Register & Login)
-👥 CRUD Operations for managing contacts (Create, Read, Update, Delete)
-🧱 Secure Routing with middleware for protected endpoints
-⚙️ RESTful API Design for seamless frontend integration
-💾 MongoDB Integration for robust and scalable data storage
-📡 Express Error Handling for smooth backend operation
+## 🚀 Features
 
-🧰 Tech Stack
-Layer	Technology
-Language	JavaScript (ES6)
-Runtime	Node.js
-Framework	Express.js
-Database	MongoDB
-Authentication	JWT (jsonwebtoken)
-Environment Config	dotenv
-API Testing	Postman
+* 🔐 JWT-based User Authentication (Register & Login)
+* 👥 Full CRUD Operations for Contacts
+* 🧱 Protected Routes using Middleware
+* ⚙️ RESTful API Architecture
+* 💾 MongoDB Integration for scalable data storage
+* 📡 Centralized Error Handling
 
+---
 
-📂 Folder Structure
+## 🧰 Tech Stack
+
+* **Language:** JavaScript (ES6)
+* **Runtime:** Node.js
+* **Framework:** Express.js
+* **Database:** MongoDB
+* **Authentication:** JWT (jsonwebtoken)
+* **Environment Config:** dotenv
+* **API Testing:** Postman
+
+---
+
+## 📂 Folder Structure
+
+```
 Secure-Contact-Manager/
 │
 ├── config/
-│   └── db.js              # MongoDB connection setup
+│   └── db.js                # MongoDB connection setup
 │
 ├── controllers/
-│   └── contactController.js  # Contact CRUD logic
-│   └── userController.js     # Auth logic (register, login)
+│   ├── userController.js   # Handles authentication logic
+│   └── contactController.js# Handles contact CRUD operations
 │
 ├── middleware/
-│   └── authMiddleware.js     # Protects private routes
+│   └── authMiddleware.js   # JWT verification & route protection
 │
 ├── models/
-│   └── userModel.js          # User schema
-│   └── contactModel.js       # Contact schema
+│   ├── userModel.js        # User schema
+│   └── contactModel.js     # Contact schema
 │
 ├── routes/
-│   └── contactRoutes.js
-│   └── userRoutes.js
+│   ├── userRoutes.js       # Auth routes
+│   └── contactRoutes.js    # Contact routes
 │
-├── .env                      # Environment variables
-├── server.js                  # Entry point
+├── .env                    # Environment variables
+├── server.js               # Entry point
 ├── package.json
 └── README.md
+```
 
-⚡ API Endpoints
-Auth Routes
-Method	Endpoint	Description
-POST	/api/users/register	Register a new user
-POST	/api/users/login	Login existing user
-Contact Routes
-Method	Endpoint	Description
-GET	/api/contacts	Get all user contacts
-POST	/api/contacts	Add a new contact
-PUT	/api/contacts/:id	Update a contact
-DELETE	/api/contacts/:id	Delete a contact
+---
 
-⚠️ All contact routes are protected and require a valid JWT token.
+## ⚡ API Endpoints
 
-🧪 Installation & Setup
+### 🔐 Authentication Routes
 
-Clone the repository
-git clone https://github.com/Aayush05082004/ContactManager-Backend.git
+| Method | Endpoint            | Description         |
+| ------ | ------------------- | ------------------- |
+| POST   | /api/users/register | Register a new user |
+| POST   | /api/users/login    | Login existing user |
 
-Navigate to project directory
-cd ContactManager-Backend
+---
 
-Install dependencies
-npm install
+### 👥 Contact Routes (Protected)
+
+> ⚠️ Requires JWT token in `Authorization` header
+
+| Method | Endpoint          | Description        |
+| ------ | ----------------- | ------------------ |
+| GET    | /api/contacts     | Get all contacts   |
+| GET    | /api/contacts/:id | Get single contact |
+| POST   | /api/contacts     | Create new contact |
+| PUT    | /api/contacts/:id | Update contact     |
+| DELETE | /api/contacts/:id | Delete contact     |
+
+---
+
+### 🔑 Example Header
+
+```
+Authorization: Bearer <your_token>
+```
 
 
-Create a .env file in the root directory and add:
+---
+
+## 🧪 Installation & Setup
+
+1. Clone the repository
+   git clone https://github.com/Aayush05082004/ContactManager-Backend.git
+
+2. Navigate to the project directory
+   cd ContactManager-Backend
+
+3. Install dependencies
+   npm install
+
+4. Create a .env file and add:
 
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 PORT=5000
 
+---
 
-Run the server
+## ▶️ Run the Server
+
+Production:
 npm start
 
-
-or for development with nodemon:
-nodemon server.js
+Development:
 npm run dev
 
+---
 
-Test API using Postman
+## 🔐 Authentication
 
+Include JWT token in headers:
 
-🧑‍💻 Author
+Authorization: Bearer <your_token>
+
+---
+
+## 📌 Future Improvements
+
+* Refresh token implementation
+* Pagination & filtering
+* Search functionality
+* Unit & integration testing
+* Deployment (Docker / Cloud)
+
+---
+
+## 🧑‍💻 Author
+
 Aayush Shrivastava
-📍 Delhi, India
-aayushshrivastava508@gmail.com
-
+Delhi, India
+[aayushshrivastava508@gmail.com](mailto:aayushshrivastava508@gmail.com)
